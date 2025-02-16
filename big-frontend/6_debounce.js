@@ -20,7 +20,7 @@ const run = (input) => {
   const calls = []
 
   const func = (arg) => {
-    calls.push(`${arg}@${currentTime}`)
+    console.log(`${arg}@${currentTime}`)
   }
 
   const debounced = debounce(func, 3)
@@ -31,4 +31,4 @@ const run = (input) => {
   return calls
 }
 
-console.log(run(['A@0', 'B@2', 'C@3']))
+console.log(run(['A@0', 'B@2', 'C@3', 'D@10']))

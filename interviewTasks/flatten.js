@@ -1,9 +1,7 @@
 function flatten(arr) {
-  if (!arr.some(Array.isArray)) {
-    return arr
-  }
+  if (!arr.some(Array.isArray)) return arr
 
-  return flatten(arr.reduce((acc, curr) => acc.concat(curr), []))
+  return flatten(arr.reduce((acc, cur) => acc.concat(cur), []))
 }
 
 console.log(flatten([1, [2, 3, [4, [5]]], 6, 7]) )

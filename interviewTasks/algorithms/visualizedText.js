@@ -1,36 +1,29 @@
 function visualizeText(str) {
-  const LettersCount = {}
-  let maxLetters = 0
+  const dict = {}
+  let max = 0 // 2
 
   for (let letter of str) {
-    if (!LettersCount[letter]) {
-      LettersCount[letter] = 0
-    }
-
-    LettersCount[letter] += 1
-
-    if (LettersCount[letter] > maxLetters) {
-      maxLetters = LettersCount[letter]
-    }
+    dict[letter] = dict[letter] ? dict[letter] + 1 : 1
+    max = Math.max(max, dict[letter])
   }
 
-  const Letters = Object.keys(LettersCount).sort()
+  const letters = Object.keys(dict).sort()
 
-  for (let i = maxLetters; i > 0; i--) {
-    let ansLine = []
+  for (let row = max; row > 0; row--) { // 2
+    let rowText = ''
 
-    for (let letter of Letters) {
-      if (LettersCount[letter] >= i) {
-        ansLine.push('#')
+    for (let letter of letters) { // h
+      if (dict[letter] >= row) {
+        rowText += '#'
       } else {
-        ansLine.push(' ')
+        rowText += ' '
       }
     }
 
-    console.log(ansLine.join(''))
+    console.log(rowText)
   }
 
-  console.log(Letters.join(''))
+  console.log(letters.join(''))
 }
 
 visualizeText('Hello, world!')

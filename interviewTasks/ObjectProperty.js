@@ -16,8 +16,8 @@ function getByProperty(obj, path) {
   let splitPath = path.split('.')
   let currPos = obj
 
-  for (let property of splitPath) {
-    currPos = currPos[property]
+  for (let i = 0; i < splitPath.length; i++) {
+    currPos = currPos[splitPath[i]]
   }
 
   return currPos
