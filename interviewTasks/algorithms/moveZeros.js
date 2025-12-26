@@ -17,15 +17,32 @@
 // };
 
 // Yura
-function moveZeros(arr) {
-  let start1 = 0
-  arr.forEach((item, i) => {
-    if (arr[i] !== 0) arr[start1++] = arr[i]
-  })
+// function moveZeros(arr) {
+//   let start1 = 0
+//   arr.forEach((item, i) => {
+//     if (arr[i] !== 0) arr[start1++] = arr[i]
+//   })
 
-  let start2 = 0
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== 0) arr[start2++] = arr[i]
+//   let start2 = 0
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== 0) arr[start2++] = arr[i]
+//   }
+
+//   return arr
+// }
+
+
+function moveZeros(arr) {
+  let left = 0
+
+  for (let right = 0; right < arr.length; right++) {
+    if (arr[right] !== 0) {
+      arr[left++] = arr[right]
+    }
+  }
+
+  for (; left < arr.length; left++) {
+    arr[left] = 0
   }
 
   return arr

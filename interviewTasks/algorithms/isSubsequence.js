@@ -13,3 +13,22 @@
 // Input: s = "axc", t = "ahbgdc"
 // Output: false
 //
+
+function isSubsequence(sub, text) {
+    let subP = 0
+
+    for (let textP = 0; subP < sub.length && textP < text.length; textP++) {
+        if (sub[subP] === text[textP]) {
+            subP++
+        }
+    }
+
+    return subP === sub.length
+}
+
+console.log(
+    isSubsequence('abc', "ahbgdc")
+)
+console.log(
+    isSubsequence("axc", "ahbgdc")
+)
